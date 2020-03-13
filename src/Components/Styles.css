@@ -26,6 +26,7 @@
   width: 200px;
   height:200px;
   border-radius:10px;
+  margin-bottom: 50px;
 }
 .Image{
    height: 75%; 
@@ -91,4 +92,10 @@
   display:flex;
   flex-wrap:wrap;
 
+}
+.filmRating{
+  padding:5px 10px;
+}
+.yellow{
+  cursor:pointer;
 }

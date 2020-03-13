@@ -11,7 +11,8 @@ const CharacterMenu = props => {
     episodes,
     changeBoolean,
     img,
-    episode
+    episode,
+    voting
   } = props;
   return (
     <div className="CharacterMenu">
@@ -21,6 +22,9 @@ const CharacterMenu = props => {
             key={ep.episode_id}
             episode={ep}
             changeBoolean={changeBoolean}
+            ratingMedia={ep.rating.mediaRating}
+            
+            longitud={ep.rating.arrayRating.length}
           />
         ))}
       </div>
@@ -29,7 +33,7 @@ const CharacterMenu = props => {
           <div className="button" onClick={() => returnOriginal()}>
             ×
           </div>
-          <EpisodeSelected episode={episode} />
+          <EpisodeSelected episode={episode}voting={voting} />
         </div>
         <div className="mapCharacters">
           {characters.map(char => (

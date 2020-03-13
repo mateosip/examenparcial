@@ -10,6 +10,7 @@ const Content = props => {
    const title = props.episode.title;
    const img = props.episode.image;
    const episode = props.episode;
+   const voting = props.voting;
   return (
     <div className="Content">
       {boolean === 0 ? (
@@ -17,6 +18,9 @@ const Content = props => {
           <Episode
             key={ep.episode_id}
             episode={ep}
+            ratingMedia={ep.rating.mediaRating}
+            
+            longitud={ep.rating.arrayRating.length}
             changeBoolean={changeBoolean}
           />
         ))
@@ -30,6 +34,7 @@ const Content = props => {
             returnOriginal={returnOriginal}
             episode={episode}
             changeBoolean={changeBoolean}
+            voting={voting}
         />
       )
 

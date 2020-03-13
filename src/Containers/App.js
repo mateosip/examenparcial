@@ -12,6 +12,14 @@ class App extends Component {
       episode:"",
   }
 
+  voting=(episode_id,rating)=>{
+    const rating10 = parseInt(rating,10);
+    let newState = cloneDeep(this.state);
+    newState.episodes[episode_id-1].rating.arrayRating.push(rating10);
+    const average = array => array.reduce((prev,act)=>prev+act)/array.length;
+    newState.episodes[episode_id-1].rating.mediaRating = Math.round(average(newState.episodes[episode_id-1].rating.arrayRating));
+    this.setState(newState);
+  }
   changeBoolean=(episode_id) =>{
     let newState = cloneDeep(this.state);
     const episode = newState.episodes.find(ep=>ep.episode_id===episode_id)
@@ -36,8 +44,10 @@ class App extends Component {
             changeBoolean={this.changeBoolean}
             episode={this.state.episode}
             returnOriginal={this.returnOriginal}
+            voting={this.voting}
           />
         </div>
+        
       </div>
     );
   }
